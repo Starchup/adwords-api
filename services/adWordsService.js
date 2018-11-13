@@ -82,6 +82,8 @@ function AdWordsService(options) {
           soap.createClient(self.wsdlUrl, function(err, client) {
             self.client = client;
 
+            if (err) console.error(err);
+
             // Add some event handling on the client
             self.client.on('request', function(request) {
               if (self.verbose)
